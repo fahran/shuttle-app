@@ -1,12 +1,9 @@
 function startClock() {
-	var currentdate = new Date();
-	document.getElementById("time").innerHTML = currentdate;
+    var currentdate = new Date();
+    document.getElementById("time").innerHTML = currentdate;
 }
 
-function init() {
-	alert("triggered");
-	startClock();
-}
-
-window.onload = init
+//window.onload = function() {
+//	startClock();
+//};
 
