@@ -1,11 +1,5 @@
 (function(){
 
-// function Time(date) {
-//     this.hours = date.getHours();
-//     this.minutes = date.getMinutes();
-//     this.seconds = date.getSeconds();
-// }
-
 function Time(hours, minutes, seconds) {
     this.hours = hours;
     this.minutes = minutes;
@@ -36,6 +30,10 @@ Time.prototype.toSimpleTime = function() {
     return _padToTwoDigits(this.hours) + ":" + _padToTwoDigits(this.minutes);
 }
 
+Time.prototype.toString = function() {
+	return _padToTwoDigits(this.hours) + ":" + _padToTwoDigits(this.minutes) + ":" + _padToTwoDigits(this.seconds);	
+}
+
 function _padToTwoDigits(number) {
     var stringNum = number.toString();
     if (stringNum.length == 1) {
@@ -43,23 +41,5 @@ function _padToTwoDigits(number) {
     }
     return stringNum
 }
-
-function findNextBus() {
-	var busDataElement = document.getElementById("busData");
-	var currentTime = Time.parseDate(new Date());
-
-    var stationToBathRoadBusService = new BusTimeService(busData[0].times.outbound);
-    var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
-
-    var nextOutboundTime = stationToBathRoadBusService.nextBusAfter(currentTime);
-    var nextReturnTime = bathRoadToStationBusService.nextBusAfter(currentTime);
-    document.getElementById("nextOutboundBusTime").innerHTML = nextOutboundTime;
-    document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
-}
-window.findNextBus = findNextBus;
-
-//window.onload = function() {
-//	startClock();
-//};
 
 })();

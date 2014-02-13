@@ -2,14 +2,16 @@
 <head>
 	<script src="js/clock.js"></script>
 	<script src="js/buses.js"></script>
+	<script src="js/app.js"></script>
 	<script id="busData" src="resources/busTimes.json"></script>
 	<script>
 		window.onload = function() {
-			findNextBus();
+			setUp();
 		}; 
 	</script>
 </head>
 <body>
+	<p>Current time: <time id="currentTime"></time></p>
 	<p>Station to Bath Road: <time id="nextOutboundBusTime"></time></p>
 	<p>Bath Road to Station: <time id="nextReturnBusTime"></time></p>
 </body>
