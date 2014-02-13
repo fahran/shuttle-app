@@ -20,6 +20,10 @@ Time.parseSimpleTime = function(time) {
     return new Time(hours, minutes, 0);
 }
 
+Time.parseDate = function(date) {
+	return new Time(date.getHours(), date.getMinutes(), date.getSeconds());
+}
+
 Time.prototype.isAfter = function(otherTime) {
     var otherTimeInSeconds = 3600 * otherTime.hours + 60 * otherTime.minutes + otherTime.seconds;
     var thisTimeInSeconds = 3600 * this.hours + 60 * this.minutes + this.seconds;
@@ -42,12 +46,13 @@ function _padToTwoDigits(number) {
 
 function findNextBus() {
 	var busDataElement = document.getElementById("busData");
+	var currentTime = Time.parseDate(new Date());
 
     var stationToBathRoadBusService = new BusTimeService(busData[0].times.outbound);
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
 
-    var nextOutboundTime = stationToBathRoadBusService.nextBusAfter(new Time(10,30,0));
-    var nextReturnTime = bathRoadToStationBusService.nextBusAfter(new Time(10,30,0));
+    var nextOutboundTime = stationToBathRoadBusService.nextBusAfter(currentTime);
+    var nextReturnTime = bathRoadToStationBusService.nextBusAfter(currentTime);
     document.getElementById("nextOutboundBusTime").innerHTML = nextOutboundTime;
     document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
 }
