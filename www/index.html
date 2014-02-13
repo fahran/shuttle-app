@@ -2,6 +2,7 @@
 <head>
 	<script src="js/clock.js"></script>
 	<script src="js/buses.js"></script>
+	<script id="busData" src="resources/busTimes.json"></script>
 	<script>
 		window.onload = function() {
 			findNextBus();
@@ -9,6 +10,7 @@
 	</script>
 </head>
 <body>
-	<p>The next bus is at: <time id="nextBusTime"></time></p>
+	<p>Station to Bath Road: <time id="nextOutboundBusTime"></time></p>
+	<p>Bath Road to Station: <time id="nextReturnBusTime"></time></p>
 </body>
 </html>

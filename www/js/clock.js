@@ -41,8 +41,15 @@ function _padToTwoDigits(number) {
 }
 
 function findNextBus() {
-    var busService = new BusTimeService(["10:00", "11:00", "12:00"])
-    document.getElementById("nextBusTime").innerHTML = busService.nextBusAfter(new Time(10,30,0));
+	var busDataElement = document.getElementById("busData");
+
+    var stationToBathRoadBusService = new BusTimeService(busData[0].times.outbound);
+    var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
+
+    var nextOutboundTime = stationToBathRoadBusService.nextBusAfter(new Time(10,30,0));
+    var nextReturnTime = bathRoadToStationBusService.nextBusAfter(new Time(10,30,0));
+    document.getElementById("nextOutboundBusTime").innerHTML = nextOutboundTime;
+    document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
 }
 window.findNextBus = findNextBus;
 
