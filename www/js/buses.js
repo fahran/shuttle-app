@@ -13,10 +13,10 @@ BusTimeService.prototype.nextBusAfter = function(time) {
 	for (var i in this.busTimes) {
 		var busTime = this.busTimes[i]
 		if (busTime.isAfter(time)) {
-			return busTime.toSimpleTime();
+			return busTime;
 		}	
 	}
-	return "no more buses";
+	return this.busTimes[0];
 }
 
 })();

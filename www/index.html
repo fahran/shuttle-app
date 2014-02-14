@@ -4,7 +4,6 @@
 	<script src="js/buses.js"></script>
 	<script src="js/app.js"></script>
 	<script id="busData" src="resources/busTimes.json"></script>
-	<script src="http://debug.phonegap.com/target/target-script-min.js#fahran"></script>
 	<script>
 		window.onload = function() {
 			setUp();
@@ -12,8 +11,7 @@
 	</script>
 </head>
 <body>
-	<p>Current time: <time id="currentTime"></time></p>
-	<p>Station to Bath Road: <time id="nextOutboundBusTime"></time></p>
-	<p>Bath Road to Station: <time id="nextReturnBusTime"></time></p>
+	<p>Next bus at: <time id="nextReturnBusTime"></time></p>
+	<p>Next bus arrives in: <time id="timeToNextBus"></time></p>
 </body>
 </html>

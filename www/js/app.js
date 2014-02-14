@@ -2,7 +2,7 @@ function setUp() {
 	var busDataElement = document.getElementById("busData");
 	var stationToBathRoadBusService = new BusTimeService(busData[0].times.outbound);
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
-    var busServices = [stationToBathRoadBusService, bathRoadToStationBusService]
+    var busServices = bathRoadToStationBusService
 
     setInterval(function() {
     	findNextBuses(busServices)
@@ -10,14 +10,13 @@ function setUp() {
 }
 window.setUp = setUp;
 
-function findNextBuses(busServices) {	
-	var currentTime = Time.parseDate(new Date());
+function findNextBuses(busService) {	
+	var currentTime = new Time.parseDate(new Date());
 
-	var nextOutboundTime = busServices[0].nextBusAfter(currentTime);
-	document.getElementById("nextOutboundBusTime").innerHTML = nextOutboundTime;
-
-	var nextReturnTime = busServices[1].nextBusAfter(currentTime);
-	document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
+	var nextReturnTime = busService.nextBusAfter(currentTime);
+	var timeToNextBus = currentTime.timeUntil(nextReturnTime); 
 	
-	document.getElementById("currentTime").innerHTML = currentTime.toString();
+	document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
+	document.getElementById("timeToNextBus").innerHTML = timeToNextBus;
 }
+

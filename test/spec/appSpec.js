@@ -1,18 +1,16 @@
 describe("app", function() {
   
     it("app.findNextBuses sets time elements to time of next buses", function() {
-      setFixtures('<time id="nextOutboundBusTime"></time>
-      	<time id="nextReturnBusTime"></time>
-      	<time id="currentTime"></time>');
+      setFixtures('<time id="nextOutboundBusTime"></time>' + 
+      	'<time id="nextReturnBusTime"></time>' +
+      	'<time id="timeToNextBus"></time>');
 
-      var serviceOne = new BusTimeService("");
-      var serviceTwo = new BusTimeService("");
+      var busService = new BusTimeService("");
 
-      spyOn(serviceOne, 'nextBusAfter').and.returnValue("service one time");
-      spyOn(serviceTwo, 'nextBusAfter').and.returnValue("service two time");
+      spyOn(busService, 'nextBusAfter').and.returnValue(new Time(1,2,3));
 
-      findNextBuses([serviceOne, serviceTwo]);
-      expect($("#nextOutboundBusTime").text()).toBe("service one time");
-      expect($("#nextReturnBusTime").text()).toBe("service two time");
+      findNextBuses(busService);
+      expect($("#nextReturnBusTime").text()).toBe("01:02:03");
+      // expect($("#timeToNextBus").text()).toBe("fuck knows");
     });
 });
