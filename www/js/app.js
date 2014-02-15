@@ -16,7 +16,7 @@ function findNextBuses(busService) {
 	var nextReturnTime = busService.nextBusAfter(currentTime);
 	var timeToNextBus = currentTime.timeUntil(nextReturnTime); 
 	
-	document.getElementById("nextReturnBusTime").innerHTML = nextReturnTime;
-	document.getElementById("timeToNextBus").innerHTML = timeToNextBus;
+	document.querySelector("#nextBusTime time").innerHTML = nextReturnTime;
+	document.querySelector("#timeToNextBus time").innerHTML = timeToNextBus;
 }
 

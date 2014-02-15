@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: helvetica, sans-serif;
+  text-align: center;
+}
+
+#timeToNextBus {
+  font-size: 6em;
+  margin-top: 300px;
+  line-height: 0px;
+}
+
+#nextReturnBusTime {
+  font-size: 1em;
+}
