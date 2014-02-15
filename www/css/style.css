@@ -1,16 +1,27 @@
+html, body {
+	height: 100%;
+}
+
 body {
   background-color: black;
   color: white;
   font-family: helvetica, sans-serif;
   text-align: center;
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+
+#timesWrapper {
+	display: table-cell;
+	vertical-align: middle;
 }
 
 #timeToNextBus {
-  font-size: 6em;
-  margin-top: 300px;
-  line-height: 0px;
+  font-size: 20vw;
+  margin: 0;
 }
 
-#nextReturnBusTime {
-  font-size: 1em;
+#nextBusTime {
+	font-size: 5vw  
 }
