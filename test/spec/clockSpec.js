@@ -198,3 +198,23 @@ describe("Time.until(time)", function() {
             expect(result.seconds).toBe(59);
     });
 });
+
+describe("time.isLessThan(time)", function() {
+   it("returns true if time is shorter than parameter", function() {
+      var shorterTime = new Time(9,0,0);
+      var longerTime = new Time(9,0,1);
+      expect(shorterTime.isLessThan(longerTime)).toBe(true);
+    });
+
+   it("returns false if time is longer than parameter", function() {
+      var shorterTime = new Time(9,0,0);
+      var longerTime = new Time(9,0,1);
+      expect(longerTime.isLessThan(shorterTime)).toBe(false);
+    });
+
+   it("returns false if time times are the same", function() {
+      var time1 = new Time(9,0,0);
+      var time2 = new Time(9,0,0);
+      expect(time1.isLessThan(time2)).toBe(false);
+    });
+});

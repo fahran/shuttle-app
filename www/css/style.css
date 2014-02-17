@@ -25,3 +25,7 @@ body {
 #nextBusTime {
 	font-size: 5vw  
 }
+
+.red {
+  color: red;
+}

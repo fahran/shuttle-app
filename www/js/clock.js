@@ -19,11 +19,11 @@ Time.parseDate = function(date) {
 }
 
 Time.prototype.isAfter = function(otherTime) {
-    var otherTimeInSeconds = 3600 * otherTime.hours + 60 * otherTime.minutes + otherTime.seconds;
-    var thisTimeInSeconds = 3600 * this.hours + 60 * this.minutes + this.seconds;
-    if (thisTimeInSeconds > otherTimeInSeconds) {
-        return true;
-    } else return false;
+    return this.inSeconds() > otherTime.inSeconds();
+}
+
+Time.prototype.isLessThan = function(otherTime) {
+    return this.inSeconds() < otherTime.inSeconds();
 }
 
 Time.prototype.toSimpleTime = function() {
@@ -37,7 +37,8 @@ Time.prototype.toString = function() {
 Time.prototype.timeUntil = function(otherTime) {
 	var remainingSeconds = otherTime.inSeconds() - this.inSeconds()
 	if (remainingSeconds < 0) {
-		remainingSeconds += (3600 * 24)
+        var secondsInADay = 3600 * 24
+		remainingSeconds += (secondsInADay)
 	}
 	var hours = Math.floor(remainingSeconds / 3600)
 	remainingSeconds -= hours * 3600
@@ -57,6 +58,5 @@ function _padToTwoDigits(number) {
     }
     return stringNum
 }
-
 
 })();
