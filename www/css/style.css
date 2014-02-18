@@ -17,13 +17,42 @@ body {
 	vertical-align: middle;
 }
 
+/*Ideally, use new vw font size measurement, for fonts that scale with screen width.
+As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with media queries...*/
 #timeToNextBus {
-  font-size: 20vw;
+  /*font-size: 20vw;*/
+  font-size: 200px;
   margin: 0;
 }
 
 #nextBusTime {
-	font-size: 5vw  
+	/*font-size: 5vw;*/
+	font-size: 50px;  
+}
+
+@media (max-width: 1500px) {
+  #timeToNextBus { font-size: 150px; }
+  #nextBusTime { font-size: 37.5px;  }
+}
+@media (max-width: 1000px) {
+  #timeToNextBus { font-size: 100px; }
+  #nextBusTime { font-size: 25px;  }
+}
+@media (max-width: 650px) {
+  #timeToNextBus { font-size: 65px; }
+  #nextBusTime { font-size: 16.25px;  }
+}
+@media (max-width: 350px) {
+  #timeToNextBus { font-size: 35px; }
+  #nextBusTime { font-size: 8.75px;  }
+}
+@media (max-width: 200px) {
+  #timeToNextBus { font-size: 20px; }
+  #nextBusTime { font-size: 5px;  }
+}
+@media (max-width: 120px) {
+  #timeToNextBus { font-size: 12px; }
+  #nextBusTime { font-size: 3px;  }
 }
 
 .red {
