@@ -4,9 +4,8 @@ function setUp() {
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
     var busServices = bathRoadToStationBusService
 
-    var currentTime = new Time.parseDate(new Date());
-
     setInterval(function() {
+    	var currentTime = new Time.parseDate(new Date());
     	findNextBuses(busServices, currentTime);
     }, 500);
 }
