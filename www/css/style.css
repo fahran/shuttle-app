@@ -21,38 +21,38 @@ body {
 As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with media queries...*/
 #timeToNextBus {
   /*font-size: 20vw;*/
-  font-size: 200px;
+  font-size: 400px;
   margin: 0;
 }
 
 #nextBusTime {
 	/*font-size: 5vw;*/
-	font-size: 50px;  
+	font-size: 100px;  
 }
 
 @media (max-width: 1500px) {
-  #timeToNextBus { font-size: 150px; }
-  #nextBusTime { font-size: 37.5px;  }
+  #timeToNextBus { font-size: 300px; }
+  #nextBusTime { font-size: 75px;  }
 }
 @media (max-width: 1000px) {
-  #timeToNextBus { font-size: 100px; }
-  #nextBusTime { font-size: 25px;  }
+  #timeToNextBus { font-size: 200px; }
+  #nextBusTime { font-size: 50px;  }
 }
-@media (max-width: 650px) {
-  #timeToNextBus { font-size: 65px; }
-  #nextBusTime { font-size: 16.25px;  }
+@media (max-width: 640px) {
+  #timeToNextBus { font-size: 128px; }
+  #nextBusTime { font-size: 32px;  }
 }
-@media (max-width: 350px) {
-  #timeToNextBus { font-size: 35px; }
-  #nextBusTime { font-size: 8.75px;  }
+@media (max-width: 340px) {
+  #timeToNextBus { font-size: 68px; }
+  #nextBusTime { font-size: 17px;  }
 }
 @media (max-width: 200px) {
-  #timeToNextBus { font-size: 20px; }
-  #nextBusTime { font-size: 5px;  }
+  #timeToNextBus { font-size: 40px; }
+  #nextBusTime { font-size: 10px;  }
 }
 @media (max-width: 120px) {
-  #timeToNextBus { font-size: 12px; }
-  #nextBusTime { font-size: 3px;  }
+  #timeToNextBus { font-size: 24px; }
+  #nextBusTime { font-size: 6px;  }
 }
 
 .red {
