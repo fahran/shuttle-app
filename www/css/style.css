@@ -1,5 +1,6 @@
 html, body {
 	height: 100%;
+	font-size: 100%;
 }
 
 body {
@@ -21,38 +22,25 @@ body {
 As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with media queries...*/
 #timeToNextBus {
   /*font-size: 20vw;*/
-  font-size: 400px;
+  font-size: 20em;
   margin: 0;
 }
 
 #nextBusTime {
 	/*font-size: 5vw;*/
-	font-size: 100px;  
+	font-size: 5em;  
 }
 
-@media (max-width: 1500px) {
-  #timeToNextBus { font-size: 300px; }
-  #nextBusTime { font-size: 75px;  }
+@media (max-width: 80em) {
+  html, body {font-size: 66%}
 }
-@media (max-width: 1000px) {
-  #timeToNextBus { font-size: 200px; }
-  #nextBusTime { font-size: 50px;  }
+
+@media (max-width: 40em) {
+  html, body {font-size: 50%}
 }
-@media (max-width: 640px) {
-  #timeToNextBus { font-size: 128px; }
-  #nextBusTime { font-size: 32px;  }
-}
-@media (max-width: 340px) {
-  #timeToNextBus { font-size: 68px; }
-  #nextBusTime { font-size: 17px;  }
-}
-@media (max-width: 200px) {
-  #timeToNextBus { font-size: 40px; }
-  #nextBusTime { font-size: 10px;  }
-}
-@media (max-width: 120px) {
-  #timeToNextBus { font-size: 24px; }
-  #nextBusTime { font-size: 6px;  }
+
+@media (max-width: 20em) {
+  html, body {font-size: 30%}
 }
 
 .imminent {
