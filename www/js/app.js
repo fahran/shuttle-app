@@ -19,7 +19,9 @@ function findNextBuses(busService, time) {
 	document.querySelector("#timeToNextBus time").innerHTML = timeToNextBus;
 
 	if (timeToNextBus.isLessThan(new Time(0,5,0))) {
-		document.getElementById("timeToNextBus").classList.add("red");	
+		document.getElementById("timeToNextBus").classList.add("imminent");	
+	} else {
+		document.getElementById("timeToNextBus").classList.remove("imminent");	
 	}
 }
 

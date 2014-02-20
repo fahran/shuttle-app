@@ -55,6 +55,6 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
   #nextBusTime { font-size: 6px;  }
 }
 
-.red {
-  color: red;
+.imminent {
+  color: orangeRed;
 }
