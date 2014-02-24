@@ -8,13 +8,20 @@
 	<script>
 		window.onload = function() {
 			setUp();
+			window.plugins.insomnia.keepAwake();
 		}; 
 	</script>
 </head>
 <body>
     <div id="timesWrapper">
     	<p id="timeToNextBus"><time></time></p>	
-        <p id="nextBusTime">Next bus: <time></time></p>
+        <p>Next bus: <time id="nextBusTime"></time>	</p>
+        <div id="timesListWrapper"> 
+	    	<ol id="busTimes"></ol>        
+	    </div>			
+    	
     </div>
+
+
 </body>
 </html>

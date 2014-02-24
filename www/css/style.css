@@ -31,6 +31,27 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
 	font-size: 5em;  
 }
 
+.imminent {
+  color: orangeRed;
+}
+
+ol {
+	list-style: none;
+}
+
+#busTimes li {
+	display: inline;
+	margin-right: 10px;
+  font-size: 2em;
+}
+
+#timesListWrapper {
+  width: 60em;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
 @media (max-width: 80em) {
   html, body {font-size: 66%}
 }
@@ -43,6 +64,3 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
   html, body {font-size: 30%}
 }
 
-.imminent {
-  color: orangeRed;
-}

@@ -19,4 +19,8 @@ BusTimeService.prototype.nextBusAfter = function(time) {
 	return this.busTimes[0];
 }
 
+BusTimeService.prototype.getTimes = function() {
+	return this.busTimes;
+}
+
 })();
