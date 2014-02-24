@@ -1,5 +1,4 @@
     <?xml version="1.0" encoding="UTF-8" ?>
-    <gap:plugin name="nl.x-services.plugins.insomnia" version="3.0" />
     <widget xmlns = "http://www.w3.org/ns/widgets"
 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
@@ -18,5 +17,6 @@
         <author href="http://fahran.net" email="fahran.wallace@gmail.com">
         Fahran Wallace
         </author>
+        <gap:plugin name="nl.x-services.plugins.insomnia" version="3.0" />
 
     </widget>
