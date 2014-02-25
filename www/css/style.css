@@ -37,16 +37,21 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
 
 ol {
 	list-style: none;
+  padding: 0;
+}
+
+#busTimes {
+  width: 1px;
 }
 
 #busTimes li {
 	display: inline;
-	margin-right: 10px;
+	margin-right: 1em;
   font-size: 2em;
 }
 
 #timesListWrapper {
-  width: 60em;
+  width: 50%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -61,6 +66,6 @@ ol {
 }
 
 @media (max-width: 20em) {
-  html, body {font-size: 30%}
+  html, body {font-size: 20%}
 }
 
