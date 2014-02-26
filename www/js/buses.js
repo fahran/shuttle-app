@@ -20,7 +20,11 @@ BusTimeService.prototype.nextBusAfter = function(time) {
 }
 
 BusTimeService.prototype.getTimes = function() {
-	return this.busTimes;
+	var result = [];
+	for (var i in this.busTimes) {
+		result.push(this.busTimes[i].toSimpleTime());
+	}
+	return result;
 }
 
 })();

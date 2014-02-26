@@ -47,8 +47,8 @@ describe("BusService.getTimes", function() {
   it("should return the list of bus times", function() {
     var busTimes = ["10:00", "11:00"];
     var busService = new BusTimeService(busTimes);
-    expect(busService.getTimes().length).toBe(2);
-    expect(busService.getTimes()[0].hours).toBe(10);
-    expect(busService.getTimes()[1].hours).toBe(11);
+    expect(busService.getTimes().length).toBe(2);   
+    expect(busService.getTimes()[0]).toBe("10:00");
+    expect(busService.getTimes()[1]).toBe("11:00");
   });
 });
