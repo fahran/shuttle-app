@@ -48,7 +48,7 @@ ol {
 #busTimes li {
 	display: inline;
 	margin-right: 1em;
-  font-size: 2em;
+  font-size: 4em;
 }
 
 #timesListWrapper {
@@ -59,14 +59,14 @@ ol {
 
 
 @media (max-width: 80em) {
-  html, body {font-size: 66%}
+  html, body {font-size: 66%;}
 }
 
 @media (max-width: 40em) {
-  html, body {font-size: 50%}
+  html, body {font-size: 50%;}
 }
 
-@media (max-width: 20em) {
-  html, body {font-size: 20%}
-}
+/*@media (max-width: 20em) {
+  html, body {font-size: 20%;}
+}*/
 
