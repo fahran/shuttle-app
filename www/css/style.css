@@ -28,7 +28,8 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
 
 #busTimes li#nextBusTime {
 	/*font-size: 5vw;*/
-	font-size: 5em;  
+	/*font-size: 5em;  */
+  color: greenyellow;
 }
 
 .imminent {
