@@ -9,6 +9,7 @@ function setUp() {
     var busService = bathRoadToStationBusService
 
     var busTimes = busService.getTimes();
+    renderBusTimes(busTimes);
 
     setInterval(function() {
     	var currentTime = new Time.parseDate(new Date());
@@ -18,14 +19,23 @@ function setUp() {
 }
 window.setUp = setUp;
 
-function populateModel(busService, currentTime, busTimes) {
+function populateModel(busService, currentTime) {
 	var nextBusTime = busService.nextBusAfter(currentTime);
 	var timeToNextBus = currentTime.timeUntil(nextBusTime);
 	var imminent = isImminent(timeToNextBus);
 	return {nextBusTime: nextBusTime.toSimpleTime(),
 			timeToNextBus: timeToNextBus.toString(),
-			imminent: imminent,
-			busTimes: busTimes}
+			imminent: imminent}
+}
+
+function renderBusTimes(busTimes) {
+	for (i in busTimes) {
+		var liNode = document.createElement("li");
+		var timeNode = document.createElement("time");
+		timeNode.innerHTML = busTimes[i];
+		liNode.appendChild(timeNode);
+		document.getElementById("busTimes").appendChild(liNode)
+	}	
 }
 
 function render(model) {
@@ -36,17 +46,29 @@ function render(model) {
 		document.getElementById("timeToNextBus").classList.remove("imminent");	
 	}
 
-	for (i in model.busTimes) {
-		var liNode = document.createElement("li");
-		var timeNode = document.createElement("time");
-		timeNode.innerHTML = model.busTimes[i];
-		if (model.nextBusTime === model.busTimes[i]) {
-			timeNode.id = "nextBusTime";
+	var nextTimeListItem = document.getElementById("nextBusTime");
+	var currentNextTime = document.querySelectorAll("#nextBusTime time");
+	
+	if (currentNextTime == null || currentNextTime.innerHTML !== model.nextBusTime) {
+
+		if (nextTimeListItem != null) {
+			nextTimeListItem.id = null;
+		};
+				
+		var listItems = document.querySelectorAll("#busTimes li");
+		for (var i in listItems) {
+			if (listItems[i].innerHTML == "<time>" + model.nextBusTime + "</time>") {
+				listItems[i].id = "nextBusTime";
+				break;
+			}
 		}
-		liNode.appendChild(timeNode);
-		document.getElementById("busTimes").appendChild(liNode)
+
+	
+		var busTimes = document.getElementById("busTimes");
+		var nextTime = document.getElementById("nextBusTime");
+		if (nextTime != null) {
+			document.getElementById("busTimes").style.marginLeft = busTimes.offsetLeft - nextTime.offsetLeft + "px";	
+		}
 	}
 }
-
-
 

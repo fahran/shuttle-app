@@ -26,7 +26,7 @@ As this is only chrome webview etc. (ie. Android 4.4 Kitkat+), we make do with m
   margin: 0;
 }
 
-#nextBusTime {
+#busTimes li#nextBusTime {
 	/*font-size: 5vw;*/
 	font-size: 5em;  
 }
