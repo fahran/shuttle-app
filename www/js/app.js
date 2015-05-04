@@ -8,6 +8,13 @@ function setUp() {
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
     var busService = bathRoadToStationBusService
 
+	var mySwiper = new Swiper('.swiper-container',{
+	    scrollContainer: true,
+	    scrollbar: {
+	      container: '.swiper-scrollbar'
+	    }
+	});
+
     var busTimes = busService.getTimes();
     renderBusTimes(busTimes);
 
@@ -34,6 +41,7 @@ function renderBusTimes(busTimes) {
 		var timeNode = document.createElement("time");
 		timeNode.innerHTML = busTimes[i];
 		liNode.appendChild(timeNode);
+		// liNode.className = "swiper-slide";
 		document.getElementById("busTimes").appendChild(liNode)
 	}	
 }
@@ -52,7 +60,7 @@ function render(model) {
 	if (currentNextTime == null || currentNextTime.innerHTML !== model.nextBusTime) {
 
 		if (nextTimeListItem != null) {
-			nextTimeListItem.id = null;
+			nextTimeListItem.removeAttribute("id");
 		};
 				
 		var listItems = document.querySelectorAll("#busTimes li");
@@ -62,7 +70,6 @@ function render(model) {
 				break;
 			}
 		}
-
 	
 		var busTimes = document.getElementById("busTimes");
 		var nextTime = document.getElementById("nextBusTime");

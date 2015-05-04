@@ -42,7 +42,7 @@ ol {
 }
 
 #busTimes {
-  width: 1px;
+  width: 100%;
 }
 
 #busTimes li {
