@@ -8,12 +8,7 @@ function setUp() {
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
     var busService = bathRoadToStationBusService
 
-	var mySwiper = new Swiper('.swiper-container',{
-	    scrollContainer: true,
-	    scrollbar: {
-	      container: '.swiper-scrollbar'
-	    }
-	});
+	
 
     var busTimes = busService.getTimes();
     renderBusTimes(busTimes);
