@@ -13,7 +13,7 @@ body {
   width: 100%;
 }
 
-#timesWrapper {
+.journey-panel {
 	display: table-cell;
 	vertical-align: middle;
 }
@@ -46,15 +46,15 @@ ol {
 }
 
 #busTimes li {
-	display: inline;
 	margin-right: 1em;
   font-size: 4em;
 }
 
-#timesListWrapper {
+.times-list-wrapper {
   width: 50%;
   margin: 0 auto;
-  overflow: hidden;
+  overflow-y: auto;
+  height: 20em;
 }
 
 
@@ -66,7 +66,11 @@ ol {
   html, body {font-size: 50%;}
 }
 
-/*@media (max-width: 20em) {
+@media (max-width: 20em) {
   html, body {font-size: 20%;}
-}*/
+
+  .times-list-wrapper {
+    overflow-y: auto;
+  }
+}
 
