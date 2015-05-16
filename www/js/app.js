@@ -8,8 +8,6 @@ function setUp() {
     var bathRoadToStationBusService = new BusTimeService(busData[0].times.return);
     var busService = bathRoadToStationBusService
 
-	
-
     var busTimes = busService.getTimes();
     renderBusTimes(busTimes);
 
