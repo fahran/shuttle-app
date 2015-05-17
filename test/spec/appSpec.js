@@ -70,14 +70,22 @@ describe("isImminent", function() {
 
 describe("populateModel", function() {
     it("populates model using correct services", function() {
-        var busService = new BusTimeService("");
+        var busService1 = new BusTimeService("");
+        var busService2 = new BusTimeService("");
+        var nextBusTime1 = new Time(1,3,0);
+        var nextBusTime2 = new Time(2,4,0);
         var currentTime = new Time(1,0,0);
-        var nextBusTime = new Time(1,3,0);
 
-        spyOn(busService, "nextBusAfter").and.returnValue(nextBusTime);
-        var result = populateModel(busService, currentTime); 
-        expect(result.nextBusTime).toBe("01:03");
-        expect(result.timeToNextBus).toBe("00:03:00");
-        expect(result.imminent).toBe(true);
+        spyOn(busService1, "nextBusAfter").and.returnValue(nextBusTime1);
+        spyOn(busService2, "nextBusAfter").and.returnValue(nextBusTime2);
+
+        var result = populateModel([busService1, busService2], currentTime); 
+        expect(result[0].nextBusTime).toBe("01:03");
+        expect(result[0].timeToNextBus).toBe("00:03:00");
+        expect(result[0].imminent).toBe(true);
+
+        expect(result[1].nextBusTime).toBe("02:04");
+        expect(result[1].timeToNextBus).toBe("01:04:00");
+        expect(result[1].imminent).toBe(false);        
     })
 });
