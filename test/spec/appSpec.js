@@ -1,43 +1,42 @@
 describe("App.render()", function() {
     it("renders the time to next bus", function() {
-		setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+		setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                     '<ol id="busTimes"><li id="nextBusTime"><time>00:00</time></li></ol>');
-    var model = {timeToNextBus: "10:00:00", nextBusTime: "00:00"};
+        var model = {timeToNextBus: "10:00:00", nextBusTime: "00:00"}
 		render(model);
-		expect($(".timeToNextBus time")[0].innerHTML).toBe("10:00:00");
+		expect($("#timeToNextBus time")[0].innerHTML).toBe("10:00:00");
 	});
 
     it("adds the imminent class to timeToNextBus if imminent is true", function() {
-      setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+      setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes"><li id="nextBusTime"><time>00:00</time></li></ol>');
       render({imminent: true, nextBusTime: "00:00"});
-      expect($(".timeToNextBus")[0].classList.contains("imminent")).toBe(true);
+      expect($("#timeToNextBus")[0].classList.contains("imminent")).toBe(true);
     });
 
     it("does not add the imminent class to timeToNextBus if imminent is false", function() {
-      setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+      setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes"><li id="nextBusTime"><time>00:00</time></li></ol>');
       render({imminent: false, nextBusTime: "00:00"});
-          debugger;
-      expect($(".timeToNextBus")[0].classList.contains("imminent")).toBe(false);
+      expect($("#timeToNextBus")[0].classList.contains("imminent")).toBe(false);
     });
 
     it("adds id nextBusTime to the nextBusTime", function() {
-        setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+        setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes"><li><time>10:00</time></li><li><time>11:00</time></li><li><time>12:00</time></li></ol>');
         render({nextBusTime: "11:00"});
         expect($("#busTimes")[0].innerHTML).toBe('<li><time>10:00</time></li><li id="nextBusTime"><time>11:00</time></li><li><time>12:00</time></li>');
     });
 
     it("moves the id nextBusTime to the right element", function() {
-        setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+        setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes"><li id="nextBusTime"><time>10:00</time></li><li><time>11:00</time></li><li><time>12:00</time></li></ol>');
         render({nextBusTime: "11:00"});
         expect($("#busTimes")[0].innerHTML).toBe('<li><time>10:00</time></li><li id="nextBusTime"><time>11:00</time></li><li><time>12:00</time></li>');
     });
 
     it("centres the nextBusTime in the list of busTimes", function() {
-        setFixtures('<p class="timeToNextBus"><time></time></p>' +  
+        setFixtures('<p id="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes">' + 
                   '<li><time>10:00</time></li>' +
                   '<li><time>11:00</time></li>' +

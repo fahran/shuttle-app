@@ -42,7 +42,7 @@ function renderBusTimes(busTimes) {
 }
 
 function render(model) {
-	document.querySelector(".timeToNextBus time").innerHTML = model.timeToNextBus;
+	document.querySelector("#timeToNextBus time").innerHTML = model.timeToNextBus;
 	updateImminentStatus(model)
 
 	var nextTimeListItem = document.getElementById("nextBusTime");
@@ -71,7 +71,7 @@ function render(model) {
 }
 
 function updateImminentStatus(model) {
-	var classes = document.querySelector(".timeToNextBus").classList
+	var classes = document.getElementById("timeToNextBus").classList
 	if (model.imminent) {
 		classes.add("imminent");	
 	} else {
