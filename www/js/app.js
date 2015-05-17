@@ -9,13 +9,21 @@ function setUp() {
     var busService = bathRoadToStationBusService
 
     var busTimes = busService.getTimes();
+    var currentTime = new Time.parseDate(new Date());
+    var nextBusTime = busService.nextBusAfter(currentTime);
+
     renderBusTimes(busTimes);
 
-    setInterval(function() {
+    function doSetUp() {
     	var currentTime = new Time.parseDate(new Date());
     	var model = populateModel([busService], currentTime, busTimes);
     	render(model[0]);
-    }, 500);
+    	setTimeout(doSetUp, 500);
+    }
+    doSetUp();
+
+    scrollToNextBusTime();
+    
 }
 window.setUp = setUp;
 
@@ -38,7 +46,19 @@ function renderBusTimes(busTimes) {
 		timeNode.innerHTML = busTimes[i];
 		liNode.appendChild(timeNode);
 		document.getElementById("busTimes").appendChild(liNode)
-	}	
+	}
+}
+
+function scrollToNextBusTime() {
+	var nextBusTime = document.getElementById("nextBusTime");
+
+	var nextTimePosition = nextBusTime.offsetTop;
+	var listOffset = document.querySelector("#busTimes").firstElementChild.offsetTop
+	var heightOfOneTime = nextBusTime.offsetHeight
+
+	var offset = nextTimePosition - listOffset - heightOfOneTime
+
+	document.querySelector(".times-list-wrapper").scrollTop	= offset
 }
 
 function render(model) {

@@ -18,7 +18,6 @@ describe("App.render()", function() {
       setFixtures('<p class="timeToNextBus"><time></time></p>' +  
                   '<ol id="busTimes"><li id="nextBusTime"><time>00:00</time></li></ol>');
       render({imminent: false, nextBusTime: "00:00"});
-          debugger;
       expect($(".timeToNextBus")[0].classList.contains("imminent")).toBe(false);
     });
 
@@ -59,6 +58,29 @@ describe("App.renderBusTimes()", function() {
         var busTimes = ["10:00", "11:00", "12:00"];
         renderBusTimes(busTimes);    
         expect($("#busTimes")[0].innerHTML).toBe('<li><time>10:00</time></li><li><time>11:00</time></li><li><time>12:00</time></li>');
+    });
+});
+
+describe("scrollToNextBusTime", function() {
+    it("scrolls the list to one before the next bus time", function() {
+      setFixtures('<section class="times-list-wrapper">' + 
+                    '<ol id="busTimes">' +
+                      '<li><time>09:00</time>' + 
+                      '<li><time>10:00</time>' + 
+                      '<li><time>11:00</time>' +
+                      '<li id="nextBusTime"><time>12:00</time>' +
+                      '<li><time>13:00</time>' +
+                    '</ol>' + 
+                  '</section>');
+
+      var timesListWrapper = document.querySelector(".times-list-wrapper");
+      timesListWrapper.style.overflowY = 'hidden';
+      timesListWrapper.style.maxHeight = "50px"
+
+      scrollToNextBusTime();
+
+      var offsetHeight = $("#busTimes li")[0].offsetHeight * 2
+      expect($(".times-list-wrapper")[0].scrollTop).toBe(offsetHeight)
     });
 });
 
